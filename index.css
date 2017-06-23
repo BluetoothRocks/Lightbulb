@@ -1,0 +1,171 @@
+
+/* Basic layout */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", sans-serif;
+}
+
+body {
+	background: #444;
+	text-align: center;
+	
+	display: grid;
+	grid-template-columns: auto minmax(100vw,60vh) auto;
+	grid-template-rows: 60vh auto;
+}
+
+
+body > svg {
+	grid-column: 2;
+	grid-row: 1;
+
+	width: 100%;
+	height: 100%;
+	padding: 5vh;
+	box-sizing: border-box;
+}
+
+body > div {
+	grid-column: 2;
+	grid-row: 2;
+	padding: 0 5vw;
+}
+
+body > div > div:first-child {
+	min-height: 40vh;
+}
+
+button {
+	color: #888;
+	background: none;
+	border: .3vh solid #888;
+	border-radius: 1vh;
+	outline: none;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+/* Color input */
+
+
+#color {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 60vh;
+	width: 100%;
+	opacity: 0;
+}
+.connected #color {
+	display: block;
+}
+
+
+
+
+
+
+/* Animated bulb */
+
+body > svg {
+	opacity: 0.3;
+
+	transition: opacity .5s;
+}
+body.connected > svg {
+	opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+/* Buttons */
+
+button#connect {
+	margin: 2vh 0;
+	padding: 1vh 2vh;
+	font-size: 3vh;
+	
+}
+
+button#emulate {
+	color: #aaa;
+	border: none;
+	background: none;
+	font-size: 1.3vh;
+}
+
+body.connected div.buttons {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Style editor */
+
+style[contenteditable] {
+	white-space: pre;
+	font-family: monospace;
+	color: #fff;
+	
+	font-size: 2vh;
+	text-align: left;
+	margin: 10vh;
+	outline: none;
+}
+
+.connected style[contenteditable] {
+	display: block;
+}
+
+
+
+
+
+/* Github link */
+
+#about {
+	display: block;
+	padding: 2vh 0;
+}
+#about a {
+	font-size: 1vh;
+	text-decoration: none;
+	color: #999;
+}
+#about svg {
+	display: inline-block;
+	height: 1.3em;
+	vertical-align: bottom
+}
+#about svg path {
+	fill: currentColor;
+	fill-rule: evenodd;
+}
+#about:hover svg path {
+	color: #cc174d;
+}

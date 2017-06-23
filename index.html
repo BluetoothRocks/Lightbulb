@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Playbulb Sphere</title>
+
+		<link rel="manifest" href="manifest.json">
+		<link rel="stylesheet" href="index.css">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script type="text/javascript" src="lib/playbulb.js"></script>
+
+		<script>
+
+			if ('serviceWorker' in navigator) {
+  				navigator.serviceWorker.register('sw.js');
+			}
+
+		</script>
+	</head>
+	
+	<body>
+		<input id=color type=color value="#444444">
+
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 299">
+			<path id="bulb" d="M579,259.5A151.35,151.35,0,0,1,512.39,385c-24.22,16.41-53.43,14-84.89,14s-60.53,2.46-84.71-13.87A151.51,151.51,0,1,1,579,259.5Z" transform="translate(-276 -108)" />
+			<path d="M329,222.5a4.5,4.5,0,0,1-4.42-5.37c4.58-23.37,18.41-43,40-56.62a119.74,119.74,0,0,1,62.41-18,4.5,4.5,0,0,1,0,9,110.5,110.5,0,0,0-57.6,16.61c-13.56,8.59-30.82,24.37-36,50.75A4.5,4.5,0,0,1,329,222.5Z" transform="translate(-276 -108)" style="fill:rgba(255,255,255,0.5)"/>
+			<path d="M478.7,407a151,151,0,0,0,33.69-17.13L342.79,390a151,151,0,0,0,33.5,17Z" transform="translate(-276 -108)" style="fill:#eee"/>
+		</svg>
+
+		<div>
+			<div>
+				<div class='buttons'>
+			        <button id='connect'>Connect</button>
+			        <br>
+			        <button id='emulate'>Don't have a Playbulb Sphere? Emulate!</button>
+				</div>
+				
+				<style>
+					
+					@keyframes rainbow {
+						0% {fill: #ff0000;}
+						10% {fill: #ff8000;}
+						20% {fill: #ffff00;}
+						30% {fill: #80ff00;}
+						40% {fill: #00ff00;}
+						50% {fill: #00ff80;}
+						60% {fill: #00ffff;}
+						70% {fill: #0080ff;}
+						80% {fill: #0000ff;}
+						90% {fill: #8000ff;}
+						100% {fill: #ff0080;}
+					}
+					
+				</style>
+					
+				<style id='style' contenteditable='plaintext-only'>
+				</style>
+			</div>
+			
+			<div id="about">
+				<a href="https://github.com/NielsLeenheer/BluetoothBulb">
+					Created with 
+					<svg viewBox="0 0 32 29.6">
+						<path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2 c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+					</svg> 
+					by Niels Leenheer
+				</a>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="index.js"></script>
+	</body>
+</html>
