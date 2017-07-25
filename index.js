@@ -6,8 +6,8 @@ var style = document.getElementById('style');
 
 function injectStyle(c) {
 	if (c) {
-		style.innerHTML = 
-			"#bulb {\n" + 
+		style.innerHTML =
+			"#bulb {\n" +
 			"    fill: " + c + ";\n" +
 			"}";
 	}
@@ -24,7 +24,7 @@ function injectStyle(c) {
 
 
 /* Color input field */
-	
+
 var field = document.getElementById('color');
 field.addEventListener('change', function(e) {
     var c = e.target.value;
@@ -46,13 +46,13 @@ var bulb = document.getElementById('bulb');
 
 function watcher() {
 	color = normalizeColor(window.getComputedStyle(bulb).fill);
-	
+
 	if (color != lastColor) {
 		lastColor = color;
-		Playbulb.color = color;
+		BluetoothBulb.color = color;
 	}
 }
-			
+
 window.setInterval(watcher, 100);
 
 
@@ -64,12 +64,12 @@ window.setInterval(watcher, 100);
 
 document.getElementById('connect')
 	.addEventListener('click', () => {
-		Playbulb.connect()
+		BluetoothBulb.connect()
 			.then(() => {
 				document.body.classList.add('connected');
-				injectStyle(Playbulb.color);
-				
-				Playbulb.addEventListener('disconnected', () => {
+				injectStyle(BluetoothBulb.color);
+
+				BluetoothBulb.addEventListener('disconnected', () => {
 					document.body.classList.remove('connected');
 					injectStyle();
 				});
@@ -83,8 +83,8 @@ document.getElementById('emulate')
 	});
 
 
-	
-	
+
+
 
 
 
@@ -99,12 +99,12 @@ function normalizeColor(rgb) {
 	}
 	else {
 		rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
-		
+
 		function hex(x) {
 		   return ("0" + parseInt(x).toString(16)).slice(-2);
 		}
-		
-		return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]); 
+
+		return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 	}
-}  
+}
 

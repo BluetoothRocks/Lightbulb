@@ -1,11 +1,11 @@
-const PRECACHE = 'precache-v2';
+const PRECACHE = 'precache-v3';
 
 const PRECACHE_URLS = [
 	'./', 				// Alias for index.html
 	'index.html',
 	'index.js',
 	'index.css',
-	'lib/playbulb.js'
+	'lib/bluetooth-bulb.js'
 ];
 
 
@@ -41,7 +41,7 @@ self.addEventListener('fetch', event => {
 				if (response) {
 					return response;
 				}
-			
+
 				return fetch(event.request)
 					.then(response => {
 						return response;
