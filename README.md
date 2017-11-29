@@ -1,8 +1,8 @@
-# BluetoothBulb
+# BluetoothRocks! Lightbulb
 Controlling a lightbulb with WebBluetooth
 
 
-## What you need?
+## What do you need?
 
 A browser that support WebBluetooth on your operating system and any of the following Bluetooth light bulbs:
 
