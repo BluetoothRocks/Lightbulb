@@ -1,0 +1,125 @@
+:root {
+    font-size: 0.5em;
+}
+
+
+
+/* Connect */
+
+.connect {
+	position: absolute;
+	top: 0;
+	left: 5rem;
+    width: 30rem;
+    z-index: 100;
+
+	box-sizing: border-box;
+	padding: 4rem 2rem 0;
+
+	background: #fff;
+	border-bottom-left-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+
+	color: #000;
+	font-size: 1.6rem;
+	line-height: 140%;
+	text-align: left;
+
+	display: flex;
+	flex-direction: column;
+
+	will-change: transform;
+	transition: transform .3s ease-in-out;
+}
+body.connected .connect {
+	transform: translateY(-50rem);
+	pointer-events: none;
+}
+.connect h1 {
+	color: #000;
+	font-size: 4rem;
+	font-weight: bold;
+	text-transform: lowercase;
+	margin-bottom: 2rem;
+}
+.connect h1 em {
+	color: #aaa;
+}
+.connect h1 svg {
+    position: relative;
+	top: -1rem;
+	width: 5rem;
+	vertical-align: middle;
+	fill: #367ebd;
+}
+.connect button {
+	background: #367ebd;
+	border-color: #367ebd;
+	color: #fff;
+
+	margin: 3rem 0 2rem;
+	padding: 1rem 2rem;
+	font-size: 3rem;
+	text-transform: lowercase;
+}
+.connect a {
+	color: #367ebd;
+	cursor: pointer;
+}
+
+
+
+
+/* Checkbox */
+
+input[type=checkbox] {
+	-webkit-appearance: none;
+	position: relative;
+	height: 5vh;
+	width: 7vh;
+	margin-top: -0.5vh;
+	outline: none;
+
+	margin-right: 1vh;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+input[type=checkbox]::before {
+	position: absolute;
+    display: block;
+	content: '';
+	
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	border: .3vh solid #888;
+	border-radius: 1vh;
+	pointer-events: none;
+}
+input[type=checkbox]::after {
+	position: absolute;
+    display: block;
+    content: '';
+	border-radius: 0.4vh;
+	top: .58vh;
+	left: .65vh;
+	height: 3.8vh;
+	width: 3.8vh;
+	pointer-events: none;
+
+	transform: translateX(0);
+	background: #888;
+	
+	transition: all .3s ease-in-out;
+}
+input[type=checkbox]:checked::after {
+	transform: translateX(1.8vh);
+    background: #367ebd;
+}
+
+
+label {
+	font-size: 2vh;
+	color: #ddd;
+}

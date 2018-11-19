@@ -2,74 +2,86 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Lightbulb – BluetoothRocks!</title>
+		<title>Bluetooth Rocks! — Lightbulb</title>
 
-		<link rel="manifest" href="manifest.json">
 		<link rel="stylesheet" href="index.css">
-
+		<link rel="stylesheet" href="common.css">
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<script type="text/javascript" src="lib/bluetooth-bulb.js"></script>
-
-		<script>
-
-			if ('serviceWorker' in navigator) {
-  				navigator.serviceWorker.register('sw.js');
-			}
-
-		</script>
 	</head>
-
-	<body>
-		<input id=color type=color value="#444444">
-
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 299">
-			<path id="bulb" d="M579,259.5A151.35,151.35,0,0,1,512.39,385c-24.22,16.41-53.43,14-84.89,14s-60.53,2.46-84.71-13.87A151.51,151.51,0,1,1,579,259.5Z" transform="translate(-276 -108)" />
-			<path d="M329,222.5a4.5,4.5,0,0,1-4.42-5.37c4.58-23.37,18.41-43,40-56.62a119.74,119.74,0,0,1,62.41-18,4.5,4.5,0,0,1,0,9,110.5,110.5,0,0,0-57.6,16.61c-13.56,8.59-30.82,24.37-36,50.75A4.5,4.5,0,0,1,329,222.5Z" transform="translate(-276 -108)" style="fill:rgba(255,255,255,0.5)"/>
-			<path d="M478.7,407a151,151,0,0,0,33.69-17.13L342.79,390a151,151,0,0,0,33.5,17Z" transform="translate(-276 -108)" style="fill:#eee"/>
-		</svg>
-
-		<div>
-			<div>
-				<div class='buttons'>
-			        <button id='connect'>Connect</button>
-			        <br>
-			        <button id='emulate'>Don't have a Bluetooth bulb? Emulate!</button>
-				</div>
-
-				<style>
-
-					@keyframes rainbow {
-						0% {fill: #ff0000;}
-						10% {fill: #ff8000;}
-						20% {fill: #ffff00;}
-						30% {fill: #80ff00;}
-						40% {fill: #00ff00;}
-						50% {fill: #00ff80;}
-						60% {fill: #00ffff;}
-						70% {fill: #0080ff;}
-						80% {fill: #0000ff;}
-						90% {fill: #8000ff;}
-						100% {fill: #ff0080;}
-					}
-
-				</style>
-
-				<style id='style' contenteditable='plaintext-only'>
-				</style>
-			</div>
-
-			<div id="about">
-				<a href="https://github.com/BluetoothRocks/Lightbulb">
-					Created with
-					<svg viewBox="0 0 32 29.6">
-						<path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2 c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-					</svg>
-					by Niels Leenheer
-				</a>
+	
+	<body class='color'>
+		<div class='content'>
+			<div class='lightbulb'>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 299">
+					<path id="bulb" d="M579,259.5A151.35,151.35,0,0,1,512.39,385c-24.22,16.41-53.43,14-84.89,14s-60.53,2.46-84.71-13.87A151.51,151.51,0,1,1,579,259.5Z" transform="translate(-276 -108)" />
+					<path d="M329,222.5a4.5,4.5,0,0,1-4.42-5.37c4.58-23.37,18.41-43,40-56.62a119.74,119.74,0,0,1,62.41-18,4.5,4.5,0,0,1,0,9,110.5,110.5,0,0,0-57.6,16.61c-13.56,8.59-30.82,24.37-36,50.75A4.5,4.5,0,0,1,329,222.5Z" transform="translate(-276 -108)" style="fill:rgba(255,255,255,0.5)"/>
+					<path d="M478.7,407a151,151,0,0,0,33.69-17.13L342.79,390a151,151,0,0,0,33.5,17Z" transform="translate(-276 -108)" style="fill:#eee"/>
+				</svg>
 			</div>
 		</div>
 
+		<div class='connect'>
+			<h1>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 136"><path d="M55.48,33.58,66.69,44.82,55.49,56.06V33.58Zm0,68.83L66.69,91.17,55.49,79.93v22.48ZM43.51,68,19.28,43.63l7-7.05L45.61,56V9.53l35.1,35.21L57.53,68,80.72,91.25,45.61,126.47V80L26.3,99.42l-7-7L43.51,68ZM50,136c29.6,0,50-14.11,50-68S79.6,0,50,0,0,14.11,0,68s20.4,68,50,68Z"/></svg>
+				Lightbulb<em>!</em>
+			</h1>
+			<p>
+				To use this demo you need a Bluetooth lightbulb. Don't have one? <a id='emulate'>Emulate!</a>
+			</p>
+
+			<button id='connect'>Connect</button>
+		</div>
+
+		<div class='settings'>
+			<div class='pills'>
+				<button id='color'>Color</button>
+				<button id='customize'>Customize</button>
+			</div>
+		
+			<div class='views'>
+				<div id='colorView'>
+					<div class='swatches'>
+						<button class='color white' data-value='#ffffff'></button>
+						<button class='color red' data-value='#ff0000'></button>
+						<button class='color green' data-value='#00ff00'></button>
+						<button class='color blue' data-value='#0000ff'></button>
+					</div>
+					<div class='swatches'>
+						<button class='color yellow' data-value='#ffff00'></button>
+						<button class='color cyan' data-value='#00ffff'></button>
+						<button class='color magenta' data-value='#ff00ff'></button>
+						<button class='color black' data-value='#000000'></button>
+					</div>
+				</div>
+
+				<div id='customizeView'>
+					<style>
+				
+						@keyframes rainbow {
+							0% {fill: #ff0000;}
+							10% {fill: #ff8000;}
+							20% {fill: #ffff00;}
+							30% {fill: #80ff00;}
+							40% {fill: #00ff00;}
+							50% {fill: #00ff80;}
+							60% {fill: #00ffff;}
+							70% {fill: #0080ff;}
+							80% {fill: #0000ff;}
+							90% {fill: #8000ff;}
+							100% {fill: #ff0080;}
+						}
+						
+					</style>
+						
+					<style id='style' contenteditable='plaintext-only'>
+					</style>
+				</div>
+			</div>			
+		</div>
+	
 		<script type="text/javascript" src="index.js"></script>
 	</body>
 </html>

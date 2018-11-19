@@ -1,6 +1,10 @@
 
 /* Basic layout */
 
+:root {
+	--settings-height: 25vh;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -13,31 +17,6 @@ html {
 body {
 	background: #444;
 	text-align: center;
-	
-	display: grid;
-	grid-template-columns: auto minmax(100vw,60vh) auto;
-	grid-template-rows: 60vh auto;
-}
-
-
-body > svg {
-	grid-column: 2;
-	grid-row: 1;
-
-	width: 100%;
-	height: 100%;
-	padding: 5vh;
-	box-sizing: border-box;
-}
-
-body > div {
-	grid-column: 2;
-	grid-row: 2;
-	padding: 0 5vw;
-}
-
-body > div > div:first-child {
-	min-height: 40vh;
 }
 
 button {
@@ -52,77 +31,150 @@ button {
 
 
 
+/* Content */
 
-
-
-/* Color input */
-
-
-#color {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 60vh;
-	width: 100%;
-	opacity: 0;
-}
-.connected #color {
-	display: block;
-}
-
-
-
-
-
-
-/* Animated bulb */
-
-body > svg {
+.content {
 	opacity: 0.3;
-
-	transition: opacity .5s;
+	transition: opacity .5s, fill .5s;
 }
-body.connected > svg {
+
+body.connected .content {
 	opacity: 1;
 }
 
 
 
 
+/* Glasses */
+
+.content .lightbulb {
+	position: absolute;
+	top: 10vh;
+	left: 10vw;
+	width: 80vw;
+	height: calc(100vh - var(--settings-height) - 20vh);
+}
+
+.content svg {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
 
 
+/* Settings */
+
+.settings {
+	position: absolute;
+	top: calc(100vh - var(--settings-height));
+	width: 100%;
+	min-height: var(--settings-height);
+	background: #333;
+
+	transition: opacity .3s ease-in-out;
+	opacity: 0.3;
+	pointer-events: none;
+}
+body.connected .settings {
+	opacity: 1;
+	pointer-events: auto;
+}
 
 
 
-/* Buttons */
+/* Pills */
 
-button#connect {
-	margin: 2vh 0;
+.pills {
+	margin-top: -2.4vh;
+	margin-bottom: 0;
+	display: flex;
+}
+.pills button {
+	margin: 0;
 	padding: 1vh 2vh;
-	font-size: 3vh;
-	
+	border-radius: 0;
+	border-left: none;
+	font-size: 2vh;
+	background: #333;
+}
+.pills button:first-of-type {
+	border-left: .3vh solid #888;
+	border-top-left-radius: 1vh;
+	border-bottom-left-radius: 1vh;
+	margin-left: auto;
+}
+.pills button:last-of-type {
+	border-top-right-radius: 1vh;
+	border-bottom-right-radius: 1vh;
+	margin-right: auto;
 }
 
-button#emulate {
-	color: #aaa;
-	border: none;
-	background: none;
-	font-size: 1.3vh;
+body.color button#color,
+body.customize button#customize {
+	background: #888;
+	color: #fff;
 }
 
-body.connected div.buttons {
+
+
+
+
+/* Views */
+
+.views {
+	padding: 6vh 0;
+	min-height: 6vh;
+	display: block;
+}
+.views > div {
 	display: none;
 }
 
+body.color div#colorView,
+body.customize div#customizeView {
+	display: block;
+}
 
 
 
+/* Colors */
 
+.swatches {
+	display: inline-block;
+	white-space: nowrap;
+}
 
-
-
+#colorView button.color {
+	width: 6vh;
+	height: 6vh;
+	margin: -1vh 1vh 4vh;
+}
+#colorView button.red {
+	background: #ff0000;
+}
+#colorView button.green {
+	background: #00ff00;
+}
+#colorView button.blue {
+	background: #0000ff;
+}
+#colorView button.yellow {
+	background: #ffff00;
+}
+#colorView button.cyan {
+	background: #00ffff;
+}
+#colorView button.magenta {
+	background: #ff00ff;
+}
+#colorView button.white {
+	background: #ffffff;
+}
+#colorView button.black {
+	background: #000000;
+}
 
 
 /* Style editor */
@@ -134,7 +186,7 @@ style[contenteditable] {
 	
 	font-size: 2vh;
 	text-align: left;
-	margin: 10vh;
+	margin: 0 10vh 10vh;
 	outline: none;
 }
 
@@ -146,26 +198,3 @@ style[contenteditable] {
 
 
 
-/* Github link */
-
-#about {
-	display: block;
-	padding: 2vh 0;
-}
-#about a {
-	font-size: 1vh;
-	text-decoration: none;
-	color: #999;
-}
-#about svg {
-	display: inline-block;
-	height: 1.3em;
-	vertical-align: bottom
-}
-#about svg path {
-	fill: currentColor;
-	fill-rule: evenodd;
-}
-#about:hover svg path {
-	color: #cc174d;
-}
