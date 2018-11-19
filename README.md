@@ -10,7 +10,7 @@ A browser that support WebBluetooth on your operating system and any of the foll
 - [Calex Bluetooth LED lamp](http://www.calex.nl/product/LEDNLE27A60-7W-2700BLUETOOTH-Let-op-Exclusief/)
 - [LeSenZ Simfiyo](http://www.lesenz.com/products/simfiyo-2/)
 - [Magic Blue](http://www.lightinthebox.com/smart-app-control-wireless-bluetooth-led-rgb-bulb-light_p4812224.html)
-- [BLE LED control module] (https://www.aliexpress.com/item/LED-Lamp-Control-Module-BLE-Bluetooth-4-0-3-6-5V-For-iOS-Android-4-2/32815433909.html)
+- [BLE LED control module](https://www.aliexpress.com/item/LED-Lamp-Control-Module-BLE-Bluetooth-4-0-3-6-5V-For-iOS-Android-4-2/32815433909.html)
 
 
 ## How does this work?
